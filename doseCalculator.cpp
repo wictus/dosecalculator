@@ -18,7 +18,7 @@ void doseCalculator::setShielding(const shieldings shield)
 void doseCalculator::calculateDose()
 {
   double fromSecondsToHour = 60*60;
-  int buildUpFactor = 5;
+  int buildUpFactor = 1;
   int fromHoursToWeek = 40;
   double rescaleFromPtoNS = 1E-9;
   
