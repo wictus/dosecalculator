@@ -2,7 +2,7 @@
 
 doseCalculator::doseCalculator()
 {
-  fDistance = fDose = 0;
+  fDistance = fDose = fConversionCoefficient= 0;
 }
 
 shieldings doseCalculator::getShielding() const
@@ -20,7 +20,6 @@ void doseCalculator::calculateDose()
   double fromSecondsToHour = 60*60;
   int buildUpFactor = 5;
   int fromHoursToWeek = 40;
-  double conversionCoefficient = 433.56; // in pSvcm2
   double rescaleFromPtoNS = 1E-9;
   
   double escapedFluxPerSecondPerSteradian = fShield.getSource().getActivity() ;
@@ -29,7 +28,7 @@ void doseCalculator::calculateDose()
   escapedFluxPerSecondPerSteradian/=fDistance* fDistance;
   escapedFluxPerSecondPerSteradian*=buildUpFactor;
   
-  fDose =  escapedFluxPerSecondPerSteradian * conversionCoefficient *rescaleFromPtoNS ;
+  fDose =  escapedFluxPerSecondPerSteradian * fConversionCoefficient *rescaleFromPtoNS ;
 
   fDose*=  fromSecondsToHour *fromHoursToWeek ;
 }
@@ -50,3 +49,14 @@ void doseCalculator::setDistance(const double distance)
 {
   fDistance = distance;
 }
+
+double doseCalculator::getConversionCoefficient() const
+{
+  return fConversionCoefficient;
+}
+
+void doseCalculator::setConversionCoefficient(const double conversion)
+{
+  fConversionCoefficient = conversion;
+}
+
