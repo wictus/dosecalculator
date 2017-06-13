@@ -49,7 +49,7 @@ shieldType shieldings::getType()const
 void shieldings::setSource(const sources& source)
 {
   fSourceInside = source;
-  std::cout << source.getActivity() << " " << fSourceInside.getActivity() << std::endl;
+  
 }
 
 sources shieldings::getSource() const
