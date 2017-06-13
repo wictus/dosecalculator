@@ -1,11 +1,12 @@
 #ifndef SOURCES
 #define SOURCES
 
+#include <string>
+
 class sources
 {
 public:
-  sources();
-  sources(std::string description =""); 
+  sources(const std::string description, const double activity, const double energy); 
 private:
   std::string fDescription ="";
   double fEnergy = 0;

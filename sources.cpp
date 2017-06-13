@@ -1,12 +1,7 @@
 #include "sources.h"
 
-sources::sources(std::string description)
+sources::sources(const std::string description, const double activity, const double energy)
 {
   fDescription = description;
-}
-
-sources::sources()
-{
-
 }
 
