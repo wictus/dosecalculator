@@ -35,8 +35,7 @@ void doseCalculator::calculateDose()
 
 double doseCalculator::getDose()
 {
-  if(fDose == 0)    
-    calculateDose();
+  calculateDose();
   return fDose;
 }
 
